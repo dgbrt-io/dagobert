@@ -1,0 +1,8 @@
+db:
+  image: postgres:9
+web:
+  build: .
+  ports:
+    - "8000:8000"
+  links:
+    - db

@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'dagobert_mdw.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dagobert_mdw',
-	'HOST': 'localhost',
-	'USER': 'michael'
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
     }
 }
 
