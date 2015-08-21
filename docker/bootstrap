@@ -5,6 +5,7 @@ set -e
 
 # Setting up cronjob...
 echo ">>> Setting up cronjob..."
+ls -la /etc/cron.d
 echo "*/1 * * * * root bash /code/cronjobs/pollmarkets" > /etc/cron.d/pollmarkets
 
 # Migrate database
