@@ -2,6 +2,9 @@
 
 set -e
 
+echo "*********** BUILDING DOCKER IMAGE ***********"
+docker-compose build
+
 echo "*********** DEPLOYING ***********"
 docker-compose up -d
 
