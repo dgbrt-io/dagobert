@@ -3,10 +3,10 @@ services:
  - docker
 env:
   COMPOSE_VERSION: 1.4.0
-  DOCKER_TLS_VERIFY 1
-  DOCKER_HOST tcp://45.55.39.167:2376
-  DOCKER_CERT_PATH $TRAVIS_BUILD_DIR/docker/certs
-
+  DOCKER_TLS_VERIFY: 1
+  DOCKER_HOST: tcp://45.55.39.167:2376
+  DOCKER_CERT_PATH: $TRAVIS_BUILD_DIR/docker/certs
+  
 before_install:
  - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
  - chmod +x docker-compose
