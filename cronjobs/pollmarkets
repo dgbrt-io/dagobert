@@ -1,1 +1,1 @@
-* * * * * root python /code/manage.py pollmarkets >> /var/log/cron.log
+*/1 * * * * root python /code/manage.py pollmarkets >> /var/log/cron.log
