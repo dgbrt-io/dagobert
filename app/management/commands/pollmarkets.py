@@ -32,4 +32,3 @@ class Command(BaseCommand):
             rate.save()
 
         print('>>> Successfully updated asset rates')
-        sleep(60)
