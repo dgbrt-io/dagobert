@@ -2,6 +2,11 @@
 
 set -e
 
+
+# Start cron daemon
+service cron start
+service cron reload
+
 # Migrate database
 echo ">>> Migrating database..."
 python manage.py migrate
