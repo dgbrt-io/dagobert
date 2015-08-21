@@ -2,8 +2,6 @@
 
 set -e
 
-crontab -l
-
 # Migrate database
 echo ">>> Migrating database..."
 python manage.py migrate
