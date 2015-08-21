@@ -10,6 +10,6 @@ before_install:
  - bash .travis/install-certs
  - bash .travis/install-docker-compose
 script:
-- echo "Hello World"
+- python manage.py test
 after_script:
-- docker-compose up -d
+- if [[ $TRAVIS_BRANCH == "master" ]]; then bash .travis/deploy; fi

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+echo "*********** DEPLOYING ***********"
+docker-compose up -d
+
+echo "*********** WAITING 10 SECS ***********"
+wait 10
+
+echo "*********** CHECKING DEPLOYMENT ***********"
+curl -fkIL http://$TARGET_HOST:8000
