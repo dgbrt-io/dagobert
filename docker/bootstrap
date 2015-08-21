@@ -6,7 +6,7 @@ set -e
 # Setting up cronjob...
 echo ">>> Setting up cronjob..."
 #ls -la /etc/cron.d
-lsb_release -a
+cat /etc/*-release
 echo "*/1 * * * * root bash /code/cronjobs/pollmarkets >> /var/log/cron.log 2>&1" > /etc/cron.d/pollmarkets
 
 # Migrate database
