@@ -11,5 +11,5 @@ before_install:
  - bash .travis/install-docker-compose
 script:
 - echo "Hello World"
-after_success:
-- docker-compose up
+after_script:
+- docker-compose up -d
