@@ -5,6 +5,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update; apt-get -y install cron
 
 ADD cronjobs/pollmarkets /etc/cron.hourly/pollmarkets
+RUN crontab /etc/crontab
 
 RUN mkdir /code
 WORKDIR /code
