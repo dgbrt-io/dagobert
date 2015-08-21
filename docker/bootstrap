@@ -2,6 +2,11 @@
 
 set -e
 
+
+# Setting up cronjob...
+echo ">>> Setting up cronjob..."
+cp cronjobs/pollmarkets /etc/cron.hourly/pollmarkets || true # don't let script fail
+
 # Migrate database
 echo ">>> Migrating database..."
 python manage.py migrate
