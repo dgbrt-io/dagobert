@@ -2,12 +2,7 @@
 
 set -e
 
-
-# Setting up cronjob...
-echo ">>> Setting up cronjob..."
-#ls -la /etc/cron.d
-cat /etc/*-release
-echo "*/1 * * * * root bash /code/cronjobs/pollmarkets >> /var/log/cron.log 2>&1" > /etc/cron.d/pollmarkets
+crontab -l
 
 # Migrate database
 echo ">>> Migrating database..."
@@ -16,3 +11,4 @@ python manage.py migrate
 # Run server
 echo ">>> Starting server..."
 python manage.py runserver 0.0.0.0:8000
+

@@ -22,14 +22,16 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # Scanning w
-        print('>>> Scanning assets')
-        assets = Asset.objects.all()
+        while True:
+            # Scanning w
+            print('>>> Scanning assets')
+            assets = Asset.objects.all()
 
-        for asset in assets:
-            json = yql('select * from yahoo.finance.quotes where symbol = "%s"' % asset.name)
-            quote = json['quote']
-            rate = Rate(asset=asset, date_time=timezone.now(), exchange=quote['StockExchange'], bid=quote['Bid'], ask=quote['Ask'], last=quote['LastTradePriceOnly'])
-            rate.save()
+            for asset in assets:
+                json = yql('select * from yahoo.finance.quotes where symbol = "%s"' % asset.name)
+                quote = json['quote']
+                rate = Rate(asset=asset, date_time=timezone.now(), exchange=quote['StockExchange'], bid=quote['Bid'], ask=quote['Ask'], last=quote['LastTradePriceOnly'])
+                rate.save()
 
-        print('>>> Successfully updated market data')
+            print('>>> Successfully updated market data')
+            sleep(60)
