@@ -2,4 +2,4 @@
 
 set -e
 
-python manage.py pollmarkets
+python /code/manage.py pollmarkets
