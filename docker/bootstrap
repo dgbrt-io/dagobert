@@ -5,7 +5,7 @@ set -e
 
 # Start cron daemon
 service cron start
-service cron reload
+service cron status
 
 # Migrate database
 echo ">>> Migrating database..."

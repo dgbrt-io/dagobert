@@ -4,13 +4,12 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update; apt-get -y install cron
 
-ADD cronjobs/pollmarkets /etc/cron.d/pollmarkets
-RUN crontab /etc/crontab
-
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 ADD . /code/
+
+RUN crontab /code/crontabs/pollmarkets
 
 CMD ["bash", "docker/bootstrap"]
