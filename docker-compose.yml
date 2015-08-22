@@ -3,7 +3,7 @@ db:
 cron:
   build: ./.docker/cron
   env_file:
-    - .docker/cron.env
+    - .secrets/cron.env
   links:
     - web
 web:
@@ -12,7 +12,7 @@ web:
     DB_HOST: db
     DB_NAME: dabobert_mdw
   env_file:
-    - .docker/web.env
+    - .secrets/web.env
   ports:
     - "8000:8000"
   links:
