@@ -1,4 +1,4 @@
-language: python
+language: node_js
 services:
 - docker
 env:
@@ -8,8 +8,9 @@ env:
   DOCKER_HOST: tcp://$TARGET_HOST:2376
   DOCKER_CERT_PATH: $TRAVIS_BUILD_DIR/docker/certs
 before_install:
- - bash .travis/install-certs
- - bash .travis/install-docker-compose
+- bash .travis/install-certs
+- bash .travis/install-secrets
+- bash .travis/install-docker-compose
 script:
 - echo "Hello World"
 after_script:

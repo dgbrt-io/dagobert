@@ -1,11 +1,9 @@
-FROM python:2.7
-
-ENV PYTHONUNBUFFERED 1
+FROM node:0.10
 
 RUN mkdir /code
 WORKDIR /code
-ADD requirements.txt /code/
-RUN pip install -r requirements.txt
+ADD package.json /code/
+RUN npm install
 ADD . /code/
 
-CMD ["bash", "docker/bootstrap"]
+CMD ["bash", ".docker/bootstrap"]

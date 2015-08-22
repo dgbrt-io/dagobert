@@ -12,7 +12,7 @@ echo "*********** WAITING 10 SECS ***********"
 sleep 10
 
 echo "*********** PRINTING CONTAINER LOGS ***********"
-
+docker logs $(docker ps -a -q)
 
 echo "*********** CHECKING DEPLOYMENT ***********"
 curl -fkIL http://$TARGET_HOST:8000

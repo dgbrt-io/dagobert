@@ -1,11 +1,18 @@
 db:
-  image: postgres:9
+  image: mongo
 cron:
-  build: ./docker/cron
+  build: ./.docker/cron
+  env_file:
+    - .docker/cron.env
   links:
     - web
 web:
   build: .
+  environment:
+    DB_HOST: db
+    DB_NAME: dabobert_mdw
+  env_file:
+    - .docker/web.env
   ports:
     - "8000:8000"
   links:

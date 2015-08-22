@@ -5,10 +5,10 @@ set -e
 # Decrypt certs
 openssl aes-256-cbc -K $encrypted_537cba538591_key \
   -iv $encrypted_537cba538591_iv \
-  -in docker/certs.tar.enc \
-  -out docker/certs.tar -d
+  -in .docker/certs.tar.enc \
+  -out .docker/certs.tar -d
 
 # Extract certs
-cd docker
+cd .docker
 tar -xf certs.tar
 ls -la $DOCKER_CERT_PATH

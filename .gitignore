@@ -1,2 +1,2 @@
-**/*.pyc
-venv
+node_modules
+.docker/*.env
