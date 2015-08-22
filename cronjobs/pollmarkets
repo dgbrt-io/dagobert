@@ -1,3 +1,1 @@
-#!/bin/bash
-
-python /code/manage.py pollmarkets >> /var/log/pollmarkets.log
+* * * * * root python /code/manage.py pollmarkets >> /var/log/pollmarkets.log
