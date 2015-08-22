@@ -8,8 +8,13 @@ env:
   DOCKER_HOST: tcp://$TARGET_HOST:2376
   DOCKER_CERT_PATH: $TRAVIS_BUILD_DIR/docker/certs
 before_install:
-- bash .travis/install-certs
-- bash .travis/install-secrets
+- openssl aes-256-cbc -K $encrypted_537cba538591_key -iv $encrypted_537cba538591_iv
+  -in .docker/cron.env.enc -out .docker/cron.env -d
+- openssl aes-256-cbc -K $encrypted_537cba538591_key -iv $encrypted_537cba538591_iv
+  -in .docker/web.env.enc -out .docker/web.env -d
+- openssl aes-256-cbc -K $encrypted_537cba538591_key -iv $encrypted_537cba538591_iv
+  -in .docker/certs.tar.enc -out .docker/certs.tar -d
+- cd .docker; tar -xf certs.tar
 - bash .travis/install-docker-compose
 script:
 - echo "Hello World"
