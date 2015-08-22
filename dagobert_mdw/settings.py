@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -74,13 +75,16 @@ WSGI_APPLICATION = 'dagobert_mdw.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+db_name = os.environ.get('DB_NAME') if os.environ.get('DB_NAME') else 'postgres'
+db_user = os.environ.get('DB_USER') if os.environ.get('DB_USER') else 'postgres'
+db_host = os.environ.get('DB_HOST') if os.environ.get('DB_HOST') else 'localhost'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
+        'NAME':  db_name,
+        'USER':  db_user,
+        'HOST':  db_host,
     }
 }
 
@@ -103,3 +107,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Rest framework configuration
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}

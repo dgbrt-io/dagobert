@@ -1,5 +1,9 @@
 db:
   image: postgres:9
+cron:
+  build: ./docker/cron
+  links:
+    - web
 web:
   build: .
   ports:

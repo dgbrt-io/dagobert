@@ -1,0 +1,1 @@
+* * * * * root curl -H "Accept: application/json" -u michael:abc -X POST http://web:8000/poll_markets >> /var/log/cron.log 2>&1

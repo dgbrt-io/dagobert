@@ -3,10 +3,13 @@ anyjson==0.3.3
 billiard==3.3.0.20
 cryptography==1.0
 Django==1.8.4
+django-filters==0.2.1
+djangorestframework==3.2.2
 enum34==1.0.4
 idna==2.0
 ipaddress==1.0.14
 kombu==3.0.26
+Markdown==2.6.2
 ndg-httpsclient==0.4.0
 psycopg2==2.6.1
 pyasn1==0.1.8

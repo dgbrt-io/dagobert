@@ -1,1 +1,0 @@
-* * * * * root python /code/manage.py pollmarkets >> /var/log/pollmarkets.log
