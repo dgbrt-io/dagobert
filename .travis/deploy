@@ -12,4 +12,4 @@ echo "*********** WAITING 10 SECS ***********"
 sleep 10
 
 echo "*********** CHECKING DEPLOYMENT ***********"
-curl -fkIL http://$TARGET_HOST:8000
+curl -fkIL -H "Secret: $SECRET" http://$TARGET_HOST:8000/assets

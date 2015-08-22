@@ -12,4 +12,4 @@ RUN chmod 0644 /etc/cron.d/pollmarkets
 RUN touch /var/log/cron.log
 
 # Run the command on container startup
-CMD echo $SECRET > /secret && cat /secret && cron && tail -f /var/log/cron.log
+CMD echo $SECRET > /secret && cron && tail -f /var/log/cron.log
