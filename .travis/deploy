@@ -7,9 +7,3 @@ docker-compose build
 
 echo "*********** DEPLOYING ***********"
 docker-compose up -d
-
-echo "*********** WAITING 10 SECS ***********"
-sleep 10
-
-echo "*********** CHECKING DEPLOYMENT ***********"
-curl -H "Secret: $SECRET" -f -k -I -L  http://$TARGET_HOST:8000/assets
