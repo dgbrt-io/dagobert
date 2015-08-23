@@ -1,1 +1,1 @@
-* * * * * root curl -H "Accept: application/json" -H "Secret: $(cat /secret)" http://web:8000/poll_markets >> /var/log/cron.log 2>&1
+0 * * * * root curl -H "Accept: application/json" -H "Secret: $(cat /secret)" http://web:8000/poll_markets >> /var/log/cron.log 2>&1
