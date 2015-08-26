@@ -1,7 +1,6 @@
 var app = require('./lib/app');
 var mongoose = require('mongoose');
 
-console.log('TODO remove. SECRET: ' + process.env.SECRET);
 var uri = 'mongodb://' + (process.env.DB_HOST || 'localhost') + '/'
 	+ (process.env.DB_NAME || 'dagobert_mdw');
 console.log('Connecting to ' + uri);
