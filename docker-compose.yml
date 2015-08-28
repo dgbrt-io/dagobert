@@ -1,9 +1,7 @@
 db:
   image: mongo
-  restart: always
 cron:
   build: ./.docker/cron
-  restart: always
   env_file:
     - .secrets/cron.env
   links:
@@ -15,7 +13,6 @@ web:
     DB_NAME: dabobert_mdw
   env_file:
     - .secrets/web.env
-  restart: always
   ports:
     - "8000:8000"
   links:

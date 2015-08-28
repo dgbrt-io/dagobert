@@ -4,4 +4,4 @@ set -e
 
 sleep 5
 
-node index.js
+node_modules/.bin/forever index.js
