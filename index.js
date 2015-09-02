@@ -1,19 +1,24 @@
 var app = require('./lib/app');
 var mongoose = require('mongoose');
+var logger = require('./lib/logger');
+var repeat = require('repeat');
+
+
 
 var uri = 'mongodb://' + (process.env.DB_HOST || 'localhost') + '/'
 	+ (process.env.DB_NAME || 'dagobert_mdw');
-console.log('Connecting to ' + uri);
+logger.info('Connecting to ' + uri);
 mongoose.connect(uri, function (err) {
 	if (err) {
-		return console.error(err);
+		return logger.error(err);
 	}
-	console.log('Connected to ' + uri);
+	logger.info('Connected to ' + uri);
 
 	var server = app.listen(process.env.PORT || 8000, function () {
 	  var host = server.address().address;
 	  var port = server.address().port;
 
-	  console.log('App listening at http://%s:%s', host, port);
+	  logger.info('App listening at http://%s:%s', host, port);
+	  repeat(require('./lib/tasks/PollerTask.js')).every(1, 'm').start.now();
 	});
 });

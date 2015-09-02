@@ -1,11 +1,5 @@
 db:
   image: mongo
-cron:
-  build: ./.docker/cron
-  env_file:
-    - .secrets/cron.env
-  links:
-    - web
 web:
   build: .
   environment:

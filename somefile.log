@@ -1,0 +1,30 @@
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:02:15.761Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:02:15.790Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:02:15.796Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:02:43.423Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:02:43.449Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:02:43.456Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:02:55.170Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:02:55.199Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:02:55.203Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:03:01.604Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:03:01.633Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:03:01.638Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:04:41.430Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:04:41.455Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:04:41.462Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:06:34.869Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:06:34.894Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:06:34.899Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:07:16.338Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:07:16.366Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:07:16.374Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:07:20.100Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:07:20.126Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:07:20.130Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:08:52.699Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:08:52.724Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:08:52.729Z"}
+{"level":"info","message":"Connecting to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:09:02.414Z"}
+{"level":"info","message":"Connected to mongodb://localhost/dagobert_mdw","timestamp":"2015-09-02T17:09:02.440Z"}
+{"level":"info","message":"App listening at http://:::8000","timestamp":"2015-09-02T17:09:02.445Z"}
