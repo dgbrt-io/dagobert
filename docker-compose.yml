@@ -5,6 +5,7 @@ web:
   environment:
     DB_HOST: db
     DB_NAME: dabobert_mdw
+    LOG_LEVEL: trace
   env_file:
     - .secrets/web.env
   ports:
