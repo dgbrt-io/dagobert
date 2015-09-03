@@ -4,11 +4,24 @@ web:
   build: .
   environment:
     DB_HOST: db
-    DB_NAME: dabobert_mdw
+    DB_NAME: dagobert_mdw
     LOG_LEVEL: trace
   env_file:
     - .secrets/web.env
-  ports:
-    - "8000:8000"
+  command: bash .docker/web
   links:
     - db
+  ports:
+    - "8000:8000"
+poller:
+  build: .
+  environment:
+    DB_HOST: db
+    DB_NAME: dagobert_mdw
+    LOG_LEVEL: trace
+  env_file:
+    - .secrets/poller.env
+  command: bash .docker/poller
+  links:
+    - db
+    - web

@@ -1,3 +1,5 @@
 node_modules
 .secrets/
 .secrets.tar
+.DS_Store
+static/bower_components

@@ -6,4 +6,4 @@ ADD package.json /code/
 RUN npm install
 ADD . /code/
 
-CMD ["bash", ".docker/bootstrap"]
+CMD ["bash", ".docker/web"]
