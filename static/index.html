@@ -8,18 +8,15 @@
 
 	<title>Dagobert</title>
 
+	<link rel="stylesheet" href="/static/bower_components/bootswatch/sandstone/bootstrap.min.css">
 	<!-- bower:css -->
 	<link rel="stylesheet" href="/static/bower_components/nvd3/src/nv.d3.css">
-	<link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.css">
 	<!-- endinject -->
 	<!-- inject:css -->
 	<link rel="stylesheet" href="/static/css/main.css">
 	<!-- endinject -->
 
 	<script src="/socket.io/socket.io.js"></script>
-	<script>
-	  var socket = io();
-	</script>
 </head>
 <body ng-controller="MainController">
 
@@ -87,12 +84,14 @@
 <script src="/static/bower_components/jquery/dist/jquery.js"></script>
 <script src="/static/bower_components/d3/d3.js"></script>
 <script src="/static/bower_components/nvd3/nv.d3.js"></script>
+<script src="/static/bower_components/angular-socket-io/socket.js"></script>
 <script src="/static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="/static/bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
 <script src="/static/lib/app.js"></script>
 <script src="/static/lib/controllers/MainController.js"></script>
+<script src="/static/lib/factories/appSocket.js"></script>
 <!-- endinject -->
 </body>
 </html>

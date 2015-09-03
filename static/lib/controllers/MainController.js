@@ -1,9 +1,15 @@
-app.controller('MainController', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+app.controller('MainController', ['$scope', '$http', '$timeout', 'appSocket', function ($scope, $http, $timeout, appSocket) {
 
 	// Scope data
 	$scope.data = [];
 	$scope.selectedIndex = -1;
 	$scope.selectedItem = null;
+
+	// Events
+	appSocket.on('hello', function (data) {
+		console.log('Received message', data);
+	});
+	appSocket.emit('hello', 'Hello from client');
 
 	// Non-scope functions
 
