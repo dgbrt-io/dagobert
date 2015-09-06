@@ -1,7 +1,9 @@
 var app = require('./lib/app');
 var mongoose = require('mongoose');
 var logger = require('./lib/logger');
-var engine = require('engine.io');
+var amqp = require('amqplib/callback_api');
+var repeat = require('repeat');
+var pollerTask = require('./lib/tasks/PollerTask.js');
 
 var uri = 'mongodb://' + (process.env.DB_HOST || 'localhost') + '/'
 	+ (process.env.DB_NAME || 'dagobert');
@@ -13,6 +15,22 @@ mongoose.connect(uri, function (err) {
 		return logger.error(err);
 	}
 	logger.info('[', 'MongoDB', ']', 'Connected to ' + uri);
-	require('repeat')(require('./lib/tasks/PollerTask.js')).every(10, 's').start.now();
 
+
+	amqp.connect('amqp://' + (process.env.RABBIT_HOST || 'localhost'), function(err, conn) {
+		if (err) {
+			return logger.error(err);
+		}
+
+  	conn.createChannel(function(err, ch) {
+			if (err) {
+				return logger.error(err);
+			}
+
+  		repeat(pollerTask({
+  			conn: conn,
+  			ch: ch
+  		})).every(10, 's').start.now();
+  	});
+  });
 });

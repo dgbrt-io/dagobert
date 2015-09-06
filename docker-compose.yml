@@ -1,21 +1,14 @@
 db:
   image: mongo
-web:
-  build: .
-  environment:
-    DB_HOST: db
-    DB_NAME: dagobert_mdw
-    LOG_LEVEL: trace
-  env_file:
-    - .secrets/web.env
-  command: bash .docker/web
-  links:
-    - db
+rabbitmq:
+  image: rabbitmq
   ports:
-    - "8000:8000"
+   - "5672:5672"
+   - "15672:15672"
 poller:
   build: .
   environment:
+    RABBIT_HOST: rabbitmq
     DB_HOST: db
     DB_NAME: dagobert_mdw
     LOG_LEVEL: trace
@@ -24,4 +17,19 @@ poller:
   command: bash .docker/poller
   links:
     - db
-    - web
+    - rabbitmq
+web:
+  build: .
+  environment:
+    RABBIT_HOST: rabbitmq
+    DB_HOST: db
+    DB_NAME: dagobert_mdw
+    LOG_LEVEL: trace
+  env_file:
+    - .secrets/web.env
+  command: bash .docker/web
+  links:
+    - db
+    - rabbitmq
+  ports:
+    - "8000:8000"

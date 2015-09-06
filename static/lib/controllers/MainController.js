@@ -9,6 +9,10 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'appSocket', fu
 	appSocket.on('hello', function (data) {
 		console.log('Received message', data);
 	});
+
+	appSocket.on('quotes', function (data) {
+		console.log('Received message', data);
+	});
 	appSocket.emit('hello', 'Hello from client');
 
 	// Non-scope functions
