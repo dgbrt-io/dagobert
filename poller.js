@@ -30,7 +30,7 @@ mongoose.connect(uri, function (err) {
   		repeat(pollerTask({
   			conn: conn,
   			ch: ch
-  		})).every(10, 's').start.now();
+  		})).every(5, 's').start.now();
   	});
   });
 });

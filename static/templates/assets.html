@@ -1,0 +1,14 @@
+<div class="row-dark">
+	<div id="master" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+				  <h2>Assets <small>All</small></h2>
+				</div>
+				<ul class="list-group">
+					<li ng-repeat="asset in data" class="list-group-item"><a href="#/assets/{{ asset.symbol }}_{{ asset.currency }}/quotes"><h3>{{ asset.symbol }}_{{ asset.currency }}</a> <small><span class="badge">{{ asset.provider }}</span></small></h3></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

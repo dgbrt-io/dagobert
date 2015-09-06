@@ -16,82 +16,52 @@
 	<link rel="stylesheet" href="/static/css/main.css">
 	<!-- endinject -->
 </head>
-<body ng-controller="MainController">
+<body>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
-					<span class="glyphicon glyphicon-filter"></span>
-				</button>
-				<!--<a class="navbar-brand navbar-brand-logo" href="#"><img src="/static/img/sap_logo.png"></a> -->
-				<a class="navbar-brand" href="#">Dagobert</a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Logged in as blablabla <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Log out</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+<!-- Navigation -->
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+				<span class="glyphicon glyphicon-filter"></span>
+			</button>
+			<!--<a class="navbar-brand navbar-brand-logo" href="#"><img src="/static/img/sap_logo.png"></a> -->
+			<a class="navbar-brand" href="#">Dagobert</a>
 		</div>
-	</nav>
-
-	<div class="row-dark">
-		<div id="master" class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>Assets</h3>
-					<ul>
-						<li>Asset 1</li>
-						<li>Asset 2</li>
+		<div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Logged in as blablabla <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Log out</a></li>
 					</ul>
-				</div>
-			</div>
+				</li>
+			</ul>
 		</div>
 	</div>
+</nav>
 
-	<!-- Detail -->
-	<div class="row-light">
-		<div id="detail" class="container ng-cloak" ng-show="data.length > 0">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>Quote chart for {{ selectedItem.name }}</h3>
-					<nvd3-line-chart
-						data="chartData"
-						id="yearlDistributionChart"
-						height="350"
-						margin="{left:30,top:1,bottom:30,right:0}"
-						showValues="true"
-						showXAxis="true"
-						showYAxis="true">
-					<svg></svg>
-				</nvd3-line-chart>
-			</div>
-		</div>
-	</div>
-</div>
+<div ng-view />
 
 
 <script src="/socket.io/socket.io.js"></script>
 
 <!-- bower:js -->
 <script src="/static/bower_components/angular/angular.js"></script>
+<script src="/static/bower_components/angular-socket-io/socket.js"></script>
 <script src="/static/bower_components/angular-touch/angular-touch.js"></script>
-<script src="/static/bower_components/jquery/dist/jquery.js"></script>
+<script src="/static/bower_components/angular-route/angular-route.js"></script>
 <script src="/static/bower_components/d3/d3.js"></script>
 <script src="/static/bower_components/nvd3/nv.d3.js"></script>
-<script src="/static/bower_components/angular-socket-io/socket.js"></script>
-<script src="/static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/static/bower_components/jquery/dist/jquery.js"></script>
 <script src="/static/bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
 <script src="/static/lib/app.js"></script>
-<script src="/static/lib/controllers/MainController.js"></script>
+<script src="/static/lib/routes.js"></script>
+<script src="/static/lib/controllers/AssetQuotesController.js"></script>
+<script src="/static/lib/controllers/AssetsController.js"></script>
 <script src="/static/lib/factories/appSocket.js"></script>
 <!-- endinject -->
 </body>

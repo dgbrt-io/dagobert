@@ -1,0 +1,28 @@
+<div class="row-dark">
+	<div id="master" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+				  <h2><small><a href="#/assets"><i class="glyphicon glyphicon-chevron-left"></i> Assets</a></small> {{ pair }}</h2>
+				  <nvd3-line-chart
+					    data="chartData"
+					    height="350"
+					    transitionDuration="500"
+					    valueformat="valueFormat"
+					    forceY="yScale"
+					    xAxisTickFormat="xAxisTickFormat()"
+					    yAxisTickFormat="yAxisTickFormat()"
+					    showValues="true"
+					    showXAxis="true"
+					    showYAxis="true">
+					</nvd3-line-chart>
+
+
+					<ul class="list-group">
+						<li ng-repeat="quote in asset.quotes | orderBy:datetime" class="list-group-item">Date: {{ quote.datetime }}, Last: {{ quote.last }}, Bid: {{ quote.bid }}, Ask: {{ quote.ask }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
