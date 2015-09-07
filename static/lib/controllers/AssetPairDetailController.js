@@ -10,6 +10,8 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 	$scope.yScale = [0, 100];
 	$scope.chartData = [];
 
+	$scope.currentQuote = null;
+
 
 	function quoteToChartEntry(quote) {
 		var date = new Date(quote.datetime);
@@ -40,6 +42,8 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 			key: key,
 			values: values
 		}]
+
+		$scope.currentQuote = quotes[quotes.length - 1];
 
 	}
 
@@ -93,6 +97,7 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 		if (data && data.pair === $scope.pair) {
 			$scope.quotes.push(data);
 			show($scope.quotes);
+			$scope.currentQuote = data;
 		}
 	});
 

@@ -8,17 +8,19 @@
 					<div class="alert alert-danger" role="alert" ng-show="error">{{ error }}</div>
 					<div class="alert alert-success" role="alert" ng-show="success">{{ success }}</div>
 
+					<center style="font-family: courier">Bid: {{ currentQuote.bid }}, Ask: {{ currentQuote.ask }}, <strong>Last: {{ currentQuote.last }}</strong></center>
+
 				  <nvd3-line-chart
-					    data="chartData"
-					    height="350"
-					    transitionDuration="500"
-					    valueformat="valueFormat"
-					    forceY="yScale"
-					    xAxisTickFormat="xAxisTickFormat()"
-					    yAxisTickFormat="yAxisTickFormat()"
-					    showValues="true"
-					    showXAxis="true"
-					    showYAxis="true">
+						data="chartData"
+						height="350"
+						transitionDuration="500"
+						valueformat="valueFormat"
+						forceY="yScale"
+						xAxisTickFormat="xAxisTickFormat()"
+						yAxisTickFormat="yAxisTickFormat()"
+						showValues="true"
+						showXAxis="true"
+						showYAxis="true">
 					</nvd3-line-chart>
 
 
