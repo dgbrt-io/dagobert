@@ -1,0 +1,37 @@
+<div class="row-dark">
+	<div id="master" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+					<h2><small><a href="#/assetPairs"><i class="glyphicon glyphicon-chevron-left"></i> Asset pairs</a></small> Add pair <small ng-show="form.symbol.length !== 0 || form.currency.length !== 0" class="pair">{{ form.symbol }}_{{ form.currency }}</small></h2>
+
+					<div class="alert alert-danger" role="alert" ng-show="error">{{ error }}</div>
+					<div class="alert alert-success" role="alert" ng-show="success">{{ success }}</div>
+
+					<form>
+						<div class="form-group">
+							<label for="symbolInput">Symbol</label>
+							<input type="text" class="form-control" id="symbolInput" placeholder="Symbol" ng-model="form.symbol">
+						</div>
+						<div class="form-group">
+							<label for="currencyInput">Currency</label>
+							<input type="text" class="form-control" id="currencyInput" placeholder="Currency" ng-model="form.currency">
+						</div>
+						<div class="form-group">
+							<label for="isinInput">ISIN</label>
+							<input type="text" class="form-control" id="isinInput" placeholder="ISIN (optional)" ng-model="form.isin">
+						</div>
+						<div class="form-group">
+							<label for="providerSelect">Provider</label>
+							<select class="form-control" id="providerSelect" ng-model="form.provider">
+								<option ng-repeat="provider in providers">{{ provider }}</option>
+							</select>
+						</div>
+						<button type="reset" class="btn btn-danger">Reset</button>
+						<button type="submit" class="btn btn-default" ng-click="save(form)">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

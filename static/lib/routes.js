@@ -1,15 +1,19 @@
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/assets/:pair/quotes', {
-        templateUrl: 'static/templates/assetQuotes.html',
-        controller: 'AssetQuotesController'
+      when('/assetPairs/add', {
+        templateUrl: 'static/templates/addAssetPair.html',
+        controller: 'AddAssetPairController'
       }).
-      when('/assets', {
-        templateUrl: 'static/templates/assets.html',
-        controller: 'AssetsController'
+      when('/assetPairs/:pair', {
+        templateUrl: 'static/templates/assetPairDetail.html',
+        controller: 'AssetPairDetailController'
+      }).
+      when('/assetPairs', {
+        templateUrl: 'static/templates/assetPairs.html',
+        controller: 'AssetPairsController'
       }).
       otherwise({
-        redirectTo: '/assets'
+        redirectTo: '/assetPairs'
       });
   }]);

@@ -1,11 +1,11 @@
-app.controller('AssetQuotesController', ['$scope', '$http', '$timeout', '$routeParams', 'appSocket', function ($scope, $http, $timeout, $routeParams, appSocket) {
+app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$routeParams', 'appSocket', function ($scope, $http, $timeout, $routeParams, appSocket) {
 
 	$scope.pair = $routeParams.pair;
 	$scope.asset = $routeParams.pair.split('_')[0];
 	$scope.currency = $routeParams.pair.split('_')[1];
 
 	// Scope data
-	$scope.asset = null;
+	$scope.quotes = [];
 
 	$scope.yScale = [0, 100];
 	$scope.chartData = [];
@@ -69,10 +69,10 @@ app.controller('AssetQuotesController', ['$scope', '$http', '$timeout', '$routeP
 		if (!$scope.pair) return console.error('Not a valid asset pair:', $scope.pair);
 
 		$scope.loading = true;
-		$http.get('/assets/' + $scope.pair + '/quotes')
+		$http.get('/assetPairs/' + $scope.pair + '/quotes')
 			.success(function (data) {
-				$scope.asset = data;
-				show($scope.asset.quotes);
+				$scope.quotes = data;
+				show($scope.quotes);
 				$scope.loading = false;
 			})
 			.error(function (err) {
@@ -90,9 +90,9 @@ app.controller('AssetQuotesController', ['$scope', '$http', '$timeout', '$routeP
 	appSocket.on('quotes', function (data) {
 		console.log('Received quote', data);
 
-		if (data && data.asset && data.asset.symbol + '_' + data.asset.currency === $scope.pair) {
-			$scope.asset.quotes.push(data.quote);
-			show($scope.asset.quotes);
+		if (data && data.pair === $scope.pair) {
+			$scope.quotes.push(data);
+			show($scope.quotes);
 		}
 	});
 

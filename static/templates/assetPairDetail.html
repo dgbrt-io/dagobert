@@ -3,7 +3,11 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="page-header">
-				  <h2><small><a href="#/assets"><i class="glyphicon glyphicon-chevron-left"></i> Assets</a></small> {{ pair }}</h2>
+				  <h2><small><a href="#/assets"><i class="glyphicon glyphicon-chevron-left"></i> Assets</a></small> <span class="pair">{{ pair }}</span></h2>
+
+					<div class="alert alert-danger" role="alert" ng-show="error">{{ error }}</div>
+					<div class="alert alert-success" role="alert" ng-show="success">{{ success }}</div>
+
 				  <nvd3-line-chart
 					    data="chartData"
 					    height="350"

@@ -1,0 +1,26 @@
+<div class="row-dark">
+	<div id="master" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+				  <a href="#/assetPairs/add" class="btn btn-success pull-right">Add pair</a>
+				  <h2>Asset pairs <small>All</small></h2>
+				</div>
+
+				<div class="alert alert-danger" role="alert" ng-show="error">{{ error }}</div>
+				<div class="alert alert-success" role="alert" ng-show="success">{{ success }}</div>
+
+				<ul class="list-group">
+					<li class="list-group-item" ng-show="data.length === 0">No asset pairs available. <a href="#/assetPairs/add">Add a new pair</a></li>
+					<li ng-repeat="assetPair in data" class="list-group-item">
+
+						<button class="btn btn-danger btn-xs pull-right" ng-click="delete(assetPair)">Delete</button>
+						<h3>
+							<a href="#/assetPairs/{{ assetPair.pair }}"><span class="pair">{{ assetPair.pair }}</span></a> <small><span class="badge">{{ assetPair.provider }}</span></small>
+						</h3>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
