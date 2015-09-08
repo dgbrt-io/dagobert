@@ -39,8 +39,8 @@ app.controller('AddAssetPairController', ['$scope', '$http', '$timeout', '$route
 			.success(function (data) {
 				$scope.success = 'Asset pair successfully saved';
 			})
-			.error(function (data) {
-				$scope.error = data;
+			.error(function (err) {
+				throw err;
 			});
 
 	};

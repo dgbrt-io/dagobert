@@ -1,6 +1,10 @@
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
+      when('/login', {
+        templateUrl: 'static/templates/login.html',
+        controller: 'LoginController'
+      }).
       when('/assetPairs/add', {
         templateUrl: 'static/templates/addAssetPair.html',
         controller: 'AddAssetPairController'

@@ -11,8 +11,7 @@ app.controller('AssetPairsController', ['$scope', '$http', '$timeout', 'appSocke
 				$scope.loading = false;
 			})
 			.error(function (err) {
-				console.error(err);
-				$scope.loading = false;
+				throw err;
 			});
 	};
 
@@ -25,9 +24,8 @@ app.controller('AssetPairsController', ['$scope', '$http', '$timeout', 'appSocke
 				$scope.loading = false;
 			})
 			.error(function (err) {
-				$scope.error = err;
-				console.error(err);
 				$scope.loading = false;
+				throw err;
 			});
 	}
 

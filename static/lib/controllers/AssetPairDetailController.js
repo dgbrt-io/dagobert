@@ -80,8 +80,7 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 				$scope.loading = false;
 			})
 			.error(function (err) {
-				console.error(err);
-				$scope.loading = false;
+				throw err;
 			});
 	};
 
