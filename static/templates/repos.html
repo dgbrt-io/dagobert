@@ -1,0 +1,26 @@
+<div class="row-dark">
+	<div id="master" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+					<h2>Repositories</h2>
+
+					<form>
+						<input type="text" ng-model="filters.search.full_name" />
+					</form>
+
+					<ul class="list-group" ng-show="filters.search.full_name.length > 0">
+						<li class="list-group-item" ng-repeat="repo in repos | filter:filters.search">
+						<button ng-click="activate(repo)" class="btn btn-xs btn-success pull-right">Activate</button>{{ repo.full_name }} </li>
+					</ul>
+
+					<ul class="list-group">
+						<li class="list-group-item" ng-repeat="repo in repos | filter:filters.activated">
+							<button ng-click="deactivate(repo)" class="btn btn-xs btn-danger pull-right">Deactivate</button>{{ repo.full_name }}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

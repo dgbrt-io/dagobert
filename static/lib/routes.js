@@ -5,6 +5,10 @@ app.config(['$routeProvider',
         templateUrl: 'static/templates/login.html',
         controller: 'LoginController'
       }).
+      when('/repos', {
+        templateUrl: 'static/templates/repos.html',
+        controller: 'ReposCtrl'
+      }).
       when('/assetPairs/add', {
         templateUrl: 'static/templates/addAssetPair.html',
         controller: 'AddAssetPairController'
@@ -18,6 +22,6 @@ app.config(['$routeProvider',
         controller: 'AssetPairsController'
       }).
       otherwise({
-        redirectTo: '/assetPairs'
+        redirectTo: '/repos'
       });
   }]);
