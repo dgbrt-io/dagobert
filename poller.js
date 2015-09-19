@@ -1,4 +1,3 @@
-var app = require('./lib/app');
 var mongoose = require('mongoose');
 var logger = require('./lib/logger');
 var amqp = require('amqplib/callback_api');
