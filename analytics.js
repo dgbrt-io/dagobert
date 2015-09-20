@@ -14,7 +14,6 @@ mongoose.connect(uri, function (err) {
 		return logger.error(err);
 	}
 
-
   logger.info('Connected to ' + uri);
 
   amqp.connect('amqp://' + (process.env.RABBIT_HOST || 'localhost'), function(err, conn) {
