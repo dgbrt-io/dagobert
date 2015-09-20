@@ -12,19 +12,28 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 
 	$scope.currentQuote = null;
 
+	$scope.period = 0;
+
 
 	function quoteToChartEntry(quote) {
 		var date = new Date(quote.datetime);
 		return [ date, quote.last ]
 	}
 
-	function show(quotes) {
+	$scope.selectPeriod = function (index) {
+		$scope.period = index;
+		show($scope.data);
+	};
+
+	function show(data) {
 
 		var key = 'Data';
 		var values = [];
 
 		var max = null;
 		var min = null;
+
+		var quotes = data.periods[$scope.period ? $scope.period : 0].quotes;
 
 		quotes.forEach(function (quote) {
 			if (!max || quote.last > max) {
@@ -66,42 +75,18 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 	}
 
 
-	// Non-scope functions
-
-	$scope.loadData = function () {
-
-		if (!$scope.pair) return console.error('Not a valid asset pair:', $scope.pair);
-
-		$scope.loading = true;
-		$http.get('/assetPairs/' + $scope.pair + '/quotes')
-			.success(function (data) {
-				$scope.quotes = data;
-				show($scope.quotes);
-				$scope.loading = false;
-			})
-			.error(function (err) {
-				throw err;
-			});
-	};
-
+	appSocket.on($scope.pair, function (data) {
+		console.log('Received quote', data);
+		$scope.data = data;
+		show($scope.data);
+	});
 
 	// Listen for events
 	appSocket.on('hello', function (data) {
 		console.log('Received message', data);
 	});
 
-	appSocket.on('quotes', function (data) {
-		console.log('Received quote', data);
-
-		if (data && data.pair === $scope.pair) {
-			$scope.quotes.push(data);
-			show($scope.quotes);
-			$scope.currentQuote = data;
-		}
-	});
 
 	// Say hello
 	appSocket.emit('hello', 'Hello from client');
-
-	$scope.loadData();
 }]);
