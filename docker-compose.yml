@@ -23,8 +23,6 @@ analytics:
     RABBIT_HOST: rabbitmq
     DB_HOST: db
     DB_NAME: dagobert_mdw
-  env_file:
-    - .secrets/analytics.env
   command: bash .docker/analytics
   links:
     - db
