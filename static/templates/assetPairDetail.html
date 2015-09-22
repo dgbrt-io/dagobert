@@ -10,10 +10,6 @@
 
 					<center style="font-family: courier">Bid: {{ currentQuote.bid }}, Ask: {{ currentQuote.ask }}, <strong>Last: {{ currentQuote.last }}</strong></center>
 
-					<ul>
-						<li ng-repeat="period in data.periods track by $index"><a href="" ng-click="selectPeriod($index)">{{ $index }}</a></li>
-					</ul>
-
 				  <nvd3-line-chart
 						data="chartData"
 						height="350"

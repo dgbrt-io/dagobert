@@ -14,12 +14,17 @@ mongoose.connect(uri, function (err) {
 		return logger.error(err);
 	}
 
-  logger.info('Connected to ' + uri);
+  logger.info('Connected to ', uri);
 
-  amqp.connect('amqp://' + (process.env.RABBIT_HOST || 'localhost'), function(err, conn) {
+  var amqUri = 'amqp://' + (process.env.RABBIT_HOST || 'localhost');
+
+  amqp.connect(amqUri, function(err, conn) {
     if (err) {
       return logger.error(err);
     }
+
+
+    logger.info('Connected to', amqUri);
 
     conn.createChannel(function(err, ch) {
       var q = 'tasks_queue';
@@ -35,7 +40,7 @@ mongoose.connect(uri, function (err) {
         var params = JSON.parse(msg.content.toString());
         ch.ack(msg);
 
-        logger.trace("Received task with params", params);
+        logger.trace('Received task for pair ', params.pair);
 
         AnalyticsSrvc.calc(params, function (err, res) {
           if (err) {
@@ -43,7 +48,7 @@ mongoose.connect(uri, function (err) {
           }
 
           ch.publish(ex, '', new Buffer(JSON.stringify(res)));
-          logger.trace(" [x] Sent %s", res);
+          logger.trace('Sent result');
         });
 
 

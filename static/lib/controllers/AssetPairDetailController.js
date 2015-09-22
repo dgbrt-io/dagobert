@@ -12,9 +12,6 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 
 	$scope.currentQuote = null;
 
-	$scope.period = 0;
-
-
 	function quoteToChartEntry(quote) {
 		var date = new Date(quote.datetime);
 		return [ date, quote.last ]
@@ -33,7 +30,7 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 		var max = null;
 		var min = null;
 
-		var quotes = data.periods[$scope.period ? $scope.period : 0].quotes;
+		var quotes = data.quotes;
 
 		quotes.forEach(function (quote) {
 			if (!max || quote.last > max) {

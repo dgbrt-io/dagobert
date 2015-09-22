@@ -11,7 +11,6 @@ poller:
     RABBIT_HOST: rabbitmq
     DB_HOST: db
     DB_NAME: dagobert_mdw
-    LOG_LEVEL: trace
   env_file:
     - .secrets/poller.env
   command: bash .docker/poller
@@ -24,7 +23,6 @@ analytics:
     RABBIT_HOST: rabbitmq
     DB_HOST: db
     DB_NAME: dagobert_mdw
-    LOG_LEVEL: trace
   env_file:
     - .secrets/analytics.env
   command: bash .docker/analytics
@@ -37,7 +35,6 @@ web:
     RABBIT_HOST: rabbitmq
     DB_HOST: db
     DB_NAME: dagobert_mdw
-    LOG_LEVEL: trace
   env_file:
     - .secrets/web.env
   command: bash .docker/web

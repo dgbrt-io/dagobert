@@ -6,4 +6,4 @@ echo "Waiting 5 seconds"
 sleep 5
 
 node -v
-node_modules/.bin/forever poller.js
+node poller.js
