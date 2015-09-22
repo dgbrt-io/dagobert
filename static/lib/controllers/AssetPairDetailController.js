@@ -5,7 +5,7 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 	$scope.currency = $routeParams.pair.split('_')[1];
 
 	// Scope data
-	$scope.quotes = [];
+	$scope.data = [];
 
 	$scope.yScale = [0, 100];
 	$scope.chartData = [];
@@ -17,11 +17,6 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 		return [ date, quote.last ]
 	}
 
-	$scope.selectPeriod = function (index) {
-		$scope.period = index;
-		show($scope.data);
-	};
-
 	function show(data) {
 
 		var key = 'Data';
@@ -30,7 +25,7 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 		var max = null;
 		var min = null;
 
-		var quotes = data.quotes;
+		var quotes = data;
 
 		quotes.forEach(function (quote) {
 			if (!max || quote.last > max) {
@@ -71,10 +66,21 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 		};
 	}
 
+	$scope.loadData = function () {
+		$http.get('/assetPairs/' + $scope.pair + '/quotes')
+			.success(function (data) {
+				$scope.data = data;
+				show($scope.data);
+			})
+			.error(function (err) {
+				throw err;
+			});
+	}
 
-	appSocket.on($scope.pair, function (data) {
-		console.log('Received quote', data);
-		$scope.data = data;
+
+	appSocket.on($scope.pair, function (newQuote) {
+		console.log('Received new quote for', $scope.pair);
+		$scope.data.push(newQuote);
 		show($scope.data);
 	});
 
@@ -83,7 +89,8 @@ app.controller('AssetPairDetailController', ['$scope', '$http', '$timeout', '$ro
 		console.log('Received message', data);
 	});
 
-
 	// Say hello
 	appSocket.emit('hello', 'Hello from client');
+
+	$scope.loadData();
 }]);
