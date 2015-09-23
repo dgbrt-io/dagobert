@@ -17,16 +17,6 @@ poller:
   links:
     - db
     - rabbitmq
-analytics:
-  build: .
-  environment:
-    RABBIT_HOST: rabbitmq
-    DB_HOST: db
-    DB_NAME: dagobert_mdw
-  command: bash .docker/analytics
-  links:
-    - db
-    - rabbitmq
 web:
   build: .
   environment:
