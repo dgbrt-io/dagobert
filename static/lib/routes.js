@@ -5,9 +5,17 @@ app.config(['$routeProvider',
         templateUrl: 'static/templates/login.html',
         controller: 'LoginController'
       }).
+      when('/jobs/:jobId', {
+        templateUrl: 'static/templates/jobDetail.html',
+        controller: 'JobDetailCtrl'
+      }).
       when('/repos', {
         templateUrl: 'static/templates/repos.html',
         controller: 'ReposCtrl'
+      }).
+      when('/repos/:repoId/jobs', {
+        templateUrl: 'static/templates/jobs.html',
+        controller: 'JobsCtrl'
       }).
       when('/assetPairs/add', {
         templateUrl: 'static/templates/addAssetPair.html',

@@ -6,7 +6,7 @@ require('./lib/mongodb')(function (err) {
 	}
 	logger.info('[MongoDB]', 'Connected to database');
 
-	require('./lib/rabbitmq')(function (err, conn) {
+	require('./lib/rabbitmq').init(function (err, conn) {
 		if (err) {
 			return logger.error(err);
 		}
