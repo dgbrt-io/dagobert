@@ -9,7 +9,7 @@
 						<li class="list-group-item" ng-repeat="job in jobs">
 
 							<h3><a href="#/jobs/{{ job._id }}">Job for commit {{ job.commit }}</a></h3>
-							<pre>{{ job }}</pre>
+							<pre>{{ job.logsStr }}</pre>
 						</li>
 					</ul>
 				</div>

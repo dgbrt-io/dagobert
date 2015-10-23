@@ -23,6 +23,7 @@ web:
     RABBIT_HOST: rabbitmq
     DB_HOST: db
     DB_NAME: dagobert_mdw
+    WORKER_IMAGE: node
   env_file:
     - .secrets/web.env
   command: bash .docker/web
