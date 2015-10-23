@@ -7,6 +7,7 @@ app.factory('$exceptionHandler', ['$injector', function($injector) {
   		return $location.path('/login');
   	}
   	else {
+      console.error(exception);
     	throw exception;
   	}
   };

@@ -4,6 +4,9 @@ app.controller('JobsCtrl', ['$scope', '$http', '$timeout', '$routeParams', 'appS
 
 
 	function formatJob(job) {
+		if (!job.logs || job.logs.length === 0)
+			return;
+
 		job.logsStr = job.logs.map(function (line) {
 			return '[' + line.timestamp + '] [' + line.streamType + '] ' + line.log;
 		}).reduce(function (prev, curr) {

@@ -5,18 +5,18 @@ rabbitmq:
   ports:
    - "5672:5672"
    - "15672:15672"
-poller:
-  build: .
-  environment:
-    RABBIT_HOST: rabbitmq
-    DB_HOST: db
-    DB_NAME: dagobert_mdw
-  env_file:
-    - .secrets/poller.env
-  command: bash .docker/poller
-  links:
-    - db
-    - rabbitmq
+# poller:
+#  build: .
+#  environment:
+#    RABBIT_HOST: rabbitmq
+#    DB_HOST: db
+#    DB_NAME: dagobert_mdw
+#  env_file:
+#    - .secrets/poller.env
+#  command: bash .docker/poller
+#  links:
+#    - db
+#    - rabbitmq
 web:
   build: .
   environment:
@@ -24,6 +24,7 @@ web:
     DB_HOST: db
     DB_NAME: dagobert_mdw
     WORKER_IMAGE: node
+    LOG_LEVEL: trace
   env_file:
     - .secrets/web.env
   command: bash .docker/web
